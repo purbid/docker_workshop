@@ -1,0 +1,10 @@
+site_name: Docker
+pages:
+    - Home: index.md
+    - What is/Why Docker: Docker.md
+    - Install: install.md
+    - pull: pull.md
+    - start: puim.md
+    - Mount: mounting.md
+    - Use case: Use_case.md
+theme: readthedocs
