@@ -124,6 +124,31 @@
             "location": "/Use_case/#building-a-wordpress-application-out-of-containers", 
             "text": "Now that we know about images and containers, lets put it all together and build an application out of this.\nWe are going to use a Wordpress image and a Mysql image and link them to access our word press blogsite on our localhost/VM IP.\nWe first install a mysql image using command  docker pull mysql  Now we run the container from this image  docker run --name purbid -e MYSQL_ROOT_PASSWORD=root -d mysql   And then attach to the detached container   docker exec -it  cont_id  bash  We now take a wordpress image and ,run a container and link that container to the database.  docker run --name wordpress_pb --link  cont_name :mysql -p 8080:80 -d wordpress  The wordpress site can now be accessed at http://127.0.0.1:8080 or  :8080  In case, an external database is to be used,  $ docker run --name some-wordpress -e WORDPRESS_DB_HOST=10.1.2.3:3306 \\\n    -e WORDPRESS_DB_USER=... -e WORDPRESS_DB_PASSWORD=... -d wordpress", 
             "title": "Building a wordpress application out of containers."
+        }, 
+        {
+            "location": "/Porting/", 
+            "text": "Porting an application across platforms.\n\n\nWe first pull a mysql image and run a mysql container.\n\n\ndocker run -it -e MYSQL_ROOT_PASSWORD=hello -d mysql:latest\n\n\nWe'll now insert data into the databse.\n\n\n\n\nWe now commit the changes to a new image.\n  \ndocker commit \ncont_id\n\n We now run a new container out of this image, and we should see the tables in this new container(supposedly).....", 
+            "title": "Poting"
+        }, 
+        {
+            "location": "/Porting/#porting-an-application-across-platforms", 
+            "text": "We first pull a mysql image and run a mysql container.  docker run -it -e MYSQL_ROOT_PASSWORD=hello -d mysql:latest  We'll now insert data into the databse.   We now commit the changes to a new image.\n   docker commit  cont_id \n We now run a new container out of this image, and we should see the tables in this new container(supposedly).....", 
+            "title": "Porting an application across platforms."
+        }, 
+        {
+            "location": "/Challenge/", 
+            "text": "We now have run applications on containers.\n\n\nNext is moving this application to the docker hub with compromising the docker container data.\n\n\nchallenge: Ship the mysql container to docker hub and pull it to your system with the database intact.\n\n\nHINT: MYSQL uses volumes to mount data on to the container, hence every time you commit the changes to a new image, the changes arent shown.\n\n\nTry to copy your data volume inside the container to a new location(inside the container only) and can solve the issue.", 
+            "title": "Challenge"
+        }, 
+        {
+            "location": "/Challenge/#challenge-ship-the-mysql-container-to-docker-hub-and-pull-it-to-your-system-with-the-database-intact", 
+            "text": "", 
+            "title": "challenge: Ship the mysql container to docker hub and pull it to your system with the database intact."
+        }, 
+        {
+            "location": "/Challenge/#hint-mysql-uses-volumes-to-mount-data-on-to-the-container-hence-every-time-you-commit-the-changes-to-a-new-image-the-changes-arent-shown", 
+            "text": "Try to copy your data volume inside the container to a new location(inside the container only) and can solve the issue.", 
+            "title": "HINT: MYSQL uses volumes to mount data on to the container, hence every time you commit the changes to a new image, the changes arent shown."
         }
     ]
 }
