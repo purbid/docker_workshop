@@ -7,4 +7,6 @@ pages:
     - start: puim.md
     - Mount: mounting.md
     - Use case: Use_case.md
+    - Poting: Porting.md
+    - Challenge: Challenge.md
 theme: readthedocs
