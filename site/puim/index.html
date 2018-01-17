@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>start - Docker</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "start";
+    var mkdocs_page_input_path = "puim.md";
+    var mkdocs_page_url = "/puim/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Docker</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Docker/">What is/Why Docker</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../install/">Install</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../pull/">pull</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">start</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#starting-the-container">Starting the container.</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#to-view-the-container-ip">To view the container IP:</a></li>
+        
+            <li><a class="toctree-l3" href="#list-of-containers">List of containers</a></li>
+        
+            <li><a class="toctree-l3" href="#port-addressing">Port addressing</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#example-of-starting-an-apache-server-container">Example of starting an apache server container</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mounting/">Mount</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Use_case/">Use case</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Docker</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>start</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="starting-the-container">Starting the container.</h1>
+<p>Containers are instances or images and hence many containers can be made from one image. 
+To create and run a container,a run command is given. Ps command shows 
+the currently running containers while ps –a shows all the containers.</p>
+<h2 id="to-view-the-container-ip">To view the container IP:</h2>
+<p>docker inspect <container_name> | grep IPAddr</p>
+<h2 id="list-of-containers">List of containers</h2>
+<p>The container are stored on the host at /var/lib/docker/container.
+ If you list that location, you can get the list of all the container ids.</p>
+<p><img alt="Screenshot" src="../dockerps.png" /></p>
+<h2 id="port-addressing">Port addressing</h2>
+<p>When a container is run, the application usually runs on the default port(80 for apache, for example).
+ To run it on a particular port say, 700 we can write –p 700:80 </p>
+<p>Some of the other useful container commands are:</p>
+<p><code>docker ps</code></p>
+<p>lists all currently running containers.</p>
+<p><code>docker ps -a</code></p>
+<p>lists all containers</p>
+<p><code>docker run --name cont_name -it &lt;img_name&gt; bash</code></p>
+<p>Start a container interactively and make bash the entrypoint.</p>
+<h1 id="example-of-starting-an-apache-server-container">Example of starting an apache server container</h1>
+<p><img alt="Screenshot" src="../apache_run.png" />
+ Note that you should an index.html file at public-html already.Otherwise, there is nothing to show and while serving on browse, 404 error is thrown.</p>
+<p>Output is something like(depending on your dockerfile)
+ <img alt="Screenshot" src="../apache.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mounting/" class="btn btn-neutral float-right" title="Mount">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../pull/" class="btn btn-neutral" title="pull"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../pull/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../mounting/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

@@ -3,3 +3,15 @@ Once a docker file is ready, we can push it to Docker Hub for others to use(Publ
  We first have to sign-up on Docker Hub.
  Type ‘docker login’ to do this.
  And then tag the desired images and then upload them to the registry created on docker hub.
+ 
+  
+ ![Screenshot](pushing to hub.png)
+ 
+ After the image is tagged we'll do 
+ 
+ ```
+ docker push <img>
+ ```
+ to push the image to the docker hub.
+ 
+ 

@@ -1,0 +1,129 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to Docker and containerization workshop\n\n\nWe will learn the following in the course of the workshop:\n\n\n\n\nWhat is docker and why is it useful.\n\n\nInstalling docker online and offline.\n\n\nPulling/Pushing images from/to Docker Hub.\n\n\nWriting your own dockerfile.\n\n\nStarting and running containers.\n\n\nShared data in containers and container networks.\n\n\nRunning applications on containers.\n\n\n\n\nFor any help, please refer https://docs.docker.com/ or feel free to contact any of the workshop conductors", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-docker-and-containerization-workshop", 
+            "text": "", 
+            "title": "Welcome to Docker and containerization workshop"
+        }, 
+        {
+            "location": "/#we-will-learn-the-following-in-the-course-of-the-workshop", 
+            "text": "What is docker and why is it useful.  Installing docker online and offline.  Pulling/Pushing images from/to Docker Hub.  Writing your own dockerfile.  Starting and running containers.  Shared data in containers and container networks.  Running applications on containers.", 
+            "title": "We will learn the following in the course of the workshop:"
+        }, 
+        {
+            "location": "/#for-any-help-please-refer-httpsdocsdockercom-or-feel-free-to-contact-any-of-the-workshop-conductors", 
+            "text": "", 
+            "title": "For any help, please refer https://docs.docker.com/ or feel free to contact any of the workshop conductors"
+        }, 
+        {
+            "location": "/Docker/", 
+            "text": "Why,What and Wow! of Docker\n\n\nTo know about docker we must first know about containers.\nTo appreciate the beauty of containers, we must know about VMs.                                                  \n - some wise man.\n\n\nImagine you require applications A,B,C on your server. But all these require different resources and OS versions.\n Now if we have a lot of space and money, we can have three different machines and run them separately. \n But is there a better way?\n\n\nEnter Virtual Machines.\n\n\nYou can now create VMs on a single server and run your apps on different VMs. Life's good.\nBut your VMs take a lot of time to boot up. You have different OS versions(each several GBs!) on top of hypervisor and hence your computer becomes slow.\n Life is not good now, but ok. But one day you are asked to move these applications to a public cloud. \nIn addition to that you are supppsed to have not only 3 but 300 different types of applications(rather micro services) running. You are in a fix.\n\n\nEnter containers.\n\n\nYou can now pack your application into these light weight conatiners (several 100 MBs) and move them easily.\nYou can have 100s of containers running on your original server.\nYou can make virtual machines using these containers. You can deploy once, use anywhere. Life has never been better!\n\n\nDOCKER is a tool for production, management and porting of containers to put across in simple terms.\n\n\n\n\nDocker architecture.\n\n\nYour Docker Machine consists of three parts.\n\n\n\n\nDocker daemon(dockerd)\n\n\nDocker client(CLI)\n\n\nREST API", 
+            "title": "What is/Why Docker"
+        }, 
+        {
+            "location": "/Docker/#whywhat-and-wow-of-docker", 
+            "text": "To know about docker we must first know about containers.\nTo appreciate the beauty of containers, we must know about VMs.                                                  \n - some wise man.  Imagine you require applications A,B,C on your server. But all these require different resources and OS versions.\n Now if we have a lot of space and money, we can have three different machines and run them separately. \n But is there a better way?", 
+            "title": "Why,What and Wow! of Docker"
+        }, 
+        {
+            "location": "/Docker/#enter-virtual-machines", 
+            "text": "You can now create VMs on a single server and run your apps on different VMs. Life's good.\nBut your VMs take a lot of time to boot up. You have different OS versions(each several GBs!) on top of hypervisor and hence your computer becomes slow.\n Life is not good now, but ok. But one day you are asked to move these applications to a public cloud. \nIn addition to that you are supppsed to have not only 3 but 300 different types of applications(rather micro services) running. You are in a fix.", 
+            "title": "Enter Virtual Machines."
+        }, 
+        {
+            "location": "/Docker/#enter-containers", 
+            "text": "You can now pack your application into these light weight conatiners (several 100 MBs) and move them easily.\nYou can have 100s of containers running on your original server.\nYou can make virtual machines using these containers. You can deploy once, use anywhere. Life has never been better!", 
+            "title": "Enter containers."
+        }, 
+        {
+            "location": "/Docker/#docker-is-a-tool-for-production-management-and-porting-of-containers-to-put-across-in-simple-terms", 
+            "text": "", 
+            "title": "DOCKER is a tool for production, management and porting of containers to put across in simple terms."
+        }, 
+        {
+            "location": "/Docker/#docker-architecture", 
+            "text": "Your Docker Machine consists of three parts.   Docker daemon(dockerd)  Docker client(CLI)  REST API", 
+            "title": "Docker architecture."
+        }, 
+        {
+            "location": "/install/", 
+            "text": "Installing docker\n\n\nDocker can be downloaded from the steps given on docker docs.\nJust type docker for centos in Google and open the first link and follow the steps.\nAfter installation, you need to specify the proxies(if required) for docker \nexplicitly in another file called /etc/systemd/system/docker.service.d/http-proxy.conf. file \n\n\n* It is necessary to have a kernel version of above 3.10 and if using CentOS a version of 7 and above.\n\n\nSteps to download can be found at \n\n\nhttps://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository\n\n\n\n\nTo summarize, the download consists of the following commands:\n\n\n$ sudo apt-get update\n\n$ sudo apt-get install \\\n    apt-transport-https \\\n    ca-certificates \\\n    curl \\\n    software-properties-common\n\n$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\n\n$ sudo apt-key fingerprint 0EBFCD88\n\n$ sudo add-apt-repository \\\n   \ndeb [arch=amd64] https://download.docker.com/linux/ubuntu \\\n   $(lsb_release -cs) \\\n   stable\n\n\n$ sudo apt-get update\n\n$ sudo apt-get install docker-ce\n\n$ apt-cache madison docker-ce", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/install/#installing-docker", 
+            "text": "Docker can be downloaded from the steps given on docker docs.\nJust type docker for centos in Google and open the first link and follow the steps.\nAfter installation, you need to specify the proxies(if required) for docker \nexplicitly in another file called /etc/systemd/system/docker.service.d/http-proxy.conf. file", 
+            "title": "Installing docker"
+        }, 
+        {
+            "location": "/install/#it-is-necessary-to-have-a-kernel-version-of-above-310-and-if-using-centos-a-version-of-7-and-above", 
+            "text": "Steps to download can be found at   https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository  To summarize, the download consists of the following commands:  $ sudo apt-get update\n\n$ sudo apt-get install \\\n    apt-transport-https \\\n    ca-certificates \\\n    curl \\\n    software-properties-common\n\n$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\n\n$ sudo apt-key fingerprint 0EBFCD88\n\n$ sudo add-apt-repository \\\n    deb [arch=amd64] https://download.docker.com/linux/ubuntu \\\n   $(lsb_release -cs) \\\n   stable \n\n$ sudo apt-get update\n\n$ sudo apt-get install docker-ce\n\n$ apt-cache madison docker-ce", 
+            "title": "* It is necessary to have a kernel version of above 3.10 and if using CentOS a version of 7 and above."
+        }, 
+        {
+            "location": "/pull/", 
+            "text": "Pulling images from the docker hub\n\n\n\n\nDocker images are objects which form the basis for the containers. To say in layman's terms(although a naive description a docker image is a template for a particular function.\n  Like using the ubuntu image you start up a ubuntu container, using a mysqldb image, you can start a mysql database container, and so on.\n\n\nImages a resulted from executing a dockerfile(Discussed later onn).\n\n\nOne image can be used to start multiple independent containers, that is the beauty of images.\n\n\n\n\nTo pull the images from docker hub the command used is docker pull. the following command when executed from bash will pull an ubuntu image from docker hub.\n\n\ndocker pull ubuntu\n\n\n\n\nTo list all the exsisting images:\n\n\ndocker images\n\n\n\n\nAn image is identified by its Image ID. The meta data about your images resides in /var/lib/docker/graph/\n in json format.\n\n\nWhen you execute docker pull, image is pulled from Docker Hub. But when an image has already been pulled, and you give docker pull again, it is pulled from local repository, thus saving time.", 
+            "title": "pull"
+        }, 
+        {
+            "location": "/pull/#pulling-images-from-the-docker-hub", 
+            "text": "Docker images are objects which form the basis for the containers. To say in layman's terms(although a naive description a docker image is a template for a particular function.\n  Like using the ubuntu image you start up a ubuntu container, using a mysqldb image, you can start a mysql database container, and so on.  Images a resulted from executing a dockerfile(Discussed later onn).  One image can be used to start multiple independent containers, that is the beauty of images.   To pull the images from docker hub the command used is docker pull. the following command when executed from bash will pull an ubuntu image from docker hub.  docker pull ubuntu  To list all the exsisting images:  docker images  An image is identified by its Image ID. The meta data about your images resides in /var/lib/docker/graph/  in json format.  When you execute docker pull, image is pulled from Docker Hub. But when an image has already been pulled, and you give docker pull again, it is pulled from local repository, thus saving time.", 
+            "title": "Pulling images from the docker hub"
+        }, 
+        {
+            "location": "/puim/", 
+            "text": "Starting the container.\n\n\nContainers are instances or images and hence many containers can be made from one image. \nTo create and run a container,a run command is given. Ps command shows \nthe currently running containers while ps \u2013a shows all the containers.\n\n\nTo view the container IP:\n\n\ndocker inspect \n | grep IPAddr\n\n\nList of containers\n\n\nThe container are stored on the host at /var/lib/docker/container.\n If you list that location, you can get the list of all the container ids.\n\n\n\n\nPort addressing\n\n\nWhen a container is run, the application usually runs on the default port(80 for apache, for example).\n To run it on a particular port say, 700 we can write \u2013p 700:80 \n\n\nSome of the other useful container commands are:\n\n\ndocker ps\n\n\nlists all currently running containers.\n\n\ndocker ps -a\n\n\nlists all containers\n\n\ndocker run --name cont_name -it \nimg_name\n bash\n\n\nStart a container interactively and make bash the entrypoint.\n\n\nExample of starting an apache server container\n\n\n\n Note that you should an index.html file at public-html already.Otherwise, there is nothing to show and while serving on browse, 404 error is thrown.\n\n\nOutput is something like(depending on your dockerfile)", 
+            "title": "start"
+        }, 
+        {
+            "location": "/puim/#starting-the-container", 
+            "text": "Containers are instances or images and hence many containers can be made from one image. \nTo create and run a container,a run command is given. Ps command shows \nthe currently running containers while ps \u2013a shows all the containers.", 
+            "title": "Starting the container."
+        }, 
+        {
+            "location": "/puim/#to-view-the-container-ip", 
+            "text": "docker inspect   | grep IPAddr", 
+            "title": "To view the container IP:"
+        }, 
+        {
+            "location": "/puim/#list-of-containers", 
+            "text": "The container are stored on the host at /var/lib/docker/container.\n If you list that location, you can get the list of all the container ids.", 
+            "title": "List of containers"
+        }, 
+        {
+            "location": "/puim/#port-addressing", 
+            "text": "When a container is run, the application usually runs on the default port(80 for apache, for example).\n To run it on a particular port say, 700 we can write \u2013p 700:80   Some of the other useful container commands are:  docker ps  lists all currently running containers.  docker ps -a  lists all containers  docker run --name cont_name -it  img_name  bash  Start a container interactively and make bash the entrypoint.", 
+            "title": "Port addressing"
+        }, 
+        {
+            "location": "/puim/#example-of-starting-an-apache-server-container", 
+            "text": "Note that you should an index.html file at public-html already.Otherwise, there is nothing to show and while serving on browse, 404 error is thrown.  Output is something like(depending on your dockerfile)", 
+            "title": "Example of starting an apache server container"
+        }, 
+        {
+            "location": "/mounting/", 
+            "text": "Mounting data to the container\n\n\nYou can mount data on a container from the host or another container.\nThe benefit of this is that this mount will remain even after the container is deleted. \nThe changes made to the mount on the container are reflected in the host location as well. \n\n\nData can be mounted to the containers using -v \n:\n.\n If the \n directory is not existent on the host, this command will create a new directory on the host, which will be managed by the docker daemon.\n\n\ndocker run -it -v \nsrc\n:\ndest\n -d img_name", 
+            "title": "Mount"
+        }, 
+        {
+            "location": "/mounting/#mounting-data-to-the-container", 
+            "text": "You can mount data on a container from the host or another container.\nThe benefit of this is that this mount will remain even after the container is deleted. \nThe changes made to the mount on the container are reflected in the host location as well.   Data can be mounted to the containers using -v  : .\n If the   directory is not existent on the host, this command will create a new directory on the host, which will be managed by the docker daemon.  docker run -it -v  src : dest  -d img_name", 
+            "title": "Mounting data to the container"
+        }, 
+        {
+            "location": "/Use_case/", 
+            "text": "Building a wordpress application out of containers.\n\n\nNow that we know about images and containers, lets put it all together and build an application out of this.\nWe are going to use a Wordpress image and a Mysql image and link them to access our word press blogsite on our localhost/VM IP.\nWe first install a mysql image using command\n\n\ndocker pull mysql\n\n\n\n\nNow we run the container from this image\n\n\ndocker run --name purbid -e MYSQL_ROOT_PASSWORD=root -d mysql \n\n\n\n\nAnd then attach to the detached container \n\n\ndocker exec -it \ncont_id\n bash\n\n\n\n\nWe now take a wordpress image and ,run a container and link that container to the database.\n\n\ndocker run --name wordpress_pb --link \ncont_name\n:mysql -p 8080:80 -d wordpress\n\n\n\n\nThe wordpress site can now be accessed at http://127.0.0.1:8080 or \n:8080\n\n\nIn case, an external database is to be used,\n\n\n$ docker run --name some-wordpress -e WORDPRESS_DB_HOST=10.1.2.3:3306 \\\n    -e WORDPRESS_DB_USER=... -e WORDPRESS_DB_PASSWORD=... -d wordpress", 
+            "title": "Use case"
+        }, 
+        {
+            "location": "/Use_case/#building-a-wordpress-application-out-of-containers", 
+            "text": "Now that we know about images and containers, lets put it all together and build an application out of this.\nWe are going to use a Wordpress image and a Mysql image and link them to access our word press blogsite on our localhost/VM IP.\nWe first install a mysql image using command  docker pull mysql  Now we run the container from this image  docker run --name purbid -e MYSQL_ROOT_PASSWORD=root -d mysql   And then attach to the detached container   docker exec -it  cont_id  bash  We now take a wordpress image and ,run a container and link that container to the database.  docker run --name wordpress_pb --link  cont_name :mysql -p 8080:80 -d wordpress  The wordpress site can now be accessed at http://127.0.0.1:8080 or  :8080  In case, an external database is to be used,  $ docker run --name some-wordpress -e WORDPRESS_DB_HOST=10.1.2.3:3306 \\\n    -e WORDPRESS_DB_USER=... -e WORDPRESS_DB_PASSWORD=... -d wordpress", 
+            "title": "Building a wordpress application out of containers."
+        }
+    ]
+}
