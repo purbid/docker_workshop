@@ -7,7 +7,7 @@
  
  We'll now insert data into the databse.
  
- ![Screenshot](https://github.com/purbid/docker_workshop/blob/master/docs/sqltable_insert_values.png)
+ ![Screenshot](docs/sqltable_insert_values.png)
  
  We now commit the changes to a new image.
   ```
