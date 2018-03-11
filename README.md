@@ -3,7 +3,7 @@
  You can find the docs hosted online at https://purbid.github.io/docker_workshop/
  You can also clone the docs to your own desktop and view it locally using mkdocs.
  Please note that the documentation provided is the basic of using containers using docker and not an advance course in container management. Any changes/contibution in the current docs is welcome.
- ##After going through the docs, you will be able to:
+ ## After going through the docs, you will be able to:
  ### 1. Tell the difference between containers and virtual machines.
  ### 2. Understand the container management software Docker.
  ### 3. Use docker to pull and push images to Docker Hub.
